@@ -36,6 +36,8 @@ public class CollectionManager {
         return null;
     }
 
+
+
     public boolean isContain(City city) {
         if (city == null || getCollectionById(city.getId()) == null) return false;
         return collection.contains(city);
