@@ -28,6 +28,9 @@ public class RemoveGreaterCommand extends Command {
         } else {
             id = ask.setId();
         }
+
+
+
         for (City el : city){
             if (String.valueOf(el.getId()).compareTo(String.valueOf(id)) < 0){
                 collectionManager.remove(el.getId());
