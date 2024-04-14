@@ -30,7 +30,7 @@ public class Ask {
 
 
     public String askName() throws AskBreak {
-    String name;
+        String name;
         while (true){
             console.print("name: ");
             name=console.readln().trim();
@@ -73,28 +73,25 @@ public class Ask {
         int area;
         while (true) {
             console.print("area: ");
-            area = Integer.parseInt(console.readln());
-            if (area < 0) {
-                console.printError("число должно быть больше 0");
-                throw new AskBreak();
+            var line = console.readln().trim();
+            if (line.equals("exit")) throw new AskBreak();
+            if (Integer.parseInt(line) > 0) {
+                try { area = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
             }
-            if (String.valueOf(area).equals("exit")) throw new AskBreak();
-            return area;
         }
+        return area;
     }
 
     public Long askPopulation() throws AskBreak {
         long population;
         while (true){
             console.print("population: ");
-            population = Long.parseLong(console.readln());
-            if (String.valueOf(population).isEmpty() | population < 0) {
-                console.printError("число должно быть большe 0 и не null ");
-                throw new AskBreak();
+            var line = console.readln().trim();
+            if (line.equals("exit")) throw new AskBreak();
+            if (!line.isEmpty() | Long.parseLong(line) > 0) {
+                try { population = Long.parseLong(line); break; }catch(NumberFormatException e) { }
             }
-            if (String.valueOf(population).equals("exit")) throw new AskBreak();
-            return population;
-        }
+        } return population;
     }
 
     public double askMetersAboveSeaLevel() throws AskBreak{
@@ -109,14 +106,12 @@ public class Ask {
         int carCode;
         while (true) {
             console.print("Car Code: ");
-            carCode = Integer.parseInt(console.readln());
-            if (carCode < 0 || carCode > 1000) {
-                console.printError("число должно быть больше 0 и меньше тысячи ");
-                throw new AskBreak();
+            var line = console.readln().trim();
+            if (Integer.parseInt(line) > 0 || Integer.parseInt(line) < 1000) {
+                try { carCode = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
             }
-            if (String.valueOf(carCode).equals("exit")) throw new AskBreak();
-            return carCode;
-        }
+            if (line.equals("exit")) throw new AskBreak();
+        } return carCode;
     }
 
     public Government askGovernment()throws AskBreak{
@@ -133,7 +128,7 @@ public class Ask {
                 } else return null;
             }
             return r;
-            } catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             throw new RuntimeException(e);
         }
     }
@@ -158,20 +153,14 @@ public class Ask {
     }
 
     public long askHuman() throws AskBreak{
-        try{
             long age;
             while (true) {
                 console.print("Enter age");
-                age = Long.parseLong(console.readln().trim());
-                if (String.valueOf(age).equals("exit")) throw new AskBreak();
-                if (age < 0) {
-                    console.printError("возраст должен быть больше 0");
-                    throw new AskBreak();
+                var line = console.readln().trim();
+                if (line.equals("exit")) throw new AskBreak();
+                if (Long.parseLong(line)> 0) {
+                    try { age = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
                 }
-                return age;
-            }
-        } catch (AskBreak e) {
-            throw new RuntimeException(e);
-        }
+        }  return age;
     }
 }
