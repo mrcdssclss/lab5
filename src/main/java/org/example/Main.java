@@ -5,8 +5,12 @@ import managers.*;
 
 public class Main {
     public static void main(String[] args) {
+        if (args == null || args.length == 0 || args[0].isEmpty()){
+            System.err.println("ты что самый умный?? где норм файл??");
+            System.exit(-1);
+        }
         var console = new ConsoleManager();
-        FileManager fileManager = new FileManager("/Users/lepidodendronnnn/IdeaProjects/lab5_maven_ver/src/main/java/org/example/file_lab5.xml", console);
+        FileManager fileManager = new FileManager(args[0], console);
         CollectionManager collectionManager = new CollectionManager(fileManager);
         collectionManager.loadCollection(fileManager);
         CommandManager commandManager = new CommandManager() {{
