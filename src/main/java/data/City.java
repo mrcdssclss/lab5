@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import static java.lang.Math.max;
 
 
+
 public class City implements Validatable {
     @Getter
     private Integer id;
