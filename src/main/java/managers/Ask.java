@@ -114,7 +114,7 @@ public class Ask {
         while (true) {
             console.print("Car Code: ");
             var line = console.readln().trim();
-            if (line.matches("^[0-9]+$") && (Integer.parseInt(line) > 0 || Integer.parseInt(line) < 1000)) {
+            if (line.matches("^[0-9]+$") && Integer.parseInt(line) > 0 && Integer.parseInt(line) < 1000) {
                 try { carCode = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
             }
             if (line.equals("exit")) throw new AskBreak();
@@ -165,7 +165,7 @@ public class Ask {
                 console.print("Enter age");
                 var line = console.readln().trim();
                 if (line.equals("exit")) throw new AskBreak();
-                if (line.matches("^[0-9]+$") && Long.parseLong(line)> 0) {
+                if (line.matches("^[0-9]+$") && Long.parseLong(line)> 0 && Long.parseLong(line) < 99) {
                     try { age = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
                 }
         }  return age;
