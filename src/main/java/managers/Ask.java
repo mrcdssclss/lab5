@@ -35,7 +35,7 @@ public class Ask {
             console.print("name: ");
             name=console.readln().trim();
             if(name.equals("exit"))throw new AskBreak();
-            if(!name.isEmpty())break;
+            if(!name.matches("^[0-9]+$") && !name.isEmpty())break;
         }
         return name;
     }
@@ -70,16 +70,19 @@ public class Ask {
         return LocalDateTime.now();
     }
     public int askArea() throws AskBreak {
-        int area;
-        while (true) {
-            console.print("area: ");
-            var line = console.readln().trim();
-            if (line.equals("exit")) throw new AskBreak();
-            if (Integer.parseInt(line) > 0) {
-                try { area = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
+            int area;
+            while (true) {
+                console.print("area: ");
+                var line = console.readln().trim();
+                if (line.equals("exit")) throw new AskBreak();
+                if (line.matches("^-?[0-9]+$") && Integer.parseInt(line) > 0) {
+                    try {
+                        area = Integer.parseInt(line);
+                        break;
+                    } catch (NumberFormatException e){}
+                }
             }
-        }
-        return area;
+            return area;
     }
 
     public Long askPopulation() throws AskBreak {
@@ -88,7 +91,7 @@ public class Ask {
             console.print("population: ");
             var line = console.readln().trim();
             if (line.equals("exit")) throw new AskBreak();
-            if (!line.isEmpty() | Long.parseLong(line) > 0) {
+            if (line.matches("^[0-9]+$") && (!line.isEmpty() | Long.parseLong(line) > 0)) {
                 try { population = Long.parseLong(line); break; }catch(NumberFormatException e) { }
             }
         } return population;
@@ -96,10 +99,14 @@ public class Ask {
 
     public double askMetersAboveSeaLevel() throws AskBreak{
         double metersAboveSeaLevel;
-        console.print("Meters Above Sea Level: ");
-        metersAboveSeaLevel = Double.parseDouble(console.readln());
-        if (String.valueOf(metersAboveSeaLevel).equals("exit")) throw new AskBreak();
-        return metersAboveSeaLevel;
+        while (true){
+            console.print("meters above sea level: ");
+            var line = console.readln().trim();
+            if (line.equals("exit")) throw new AskBreak();
+            if (line.matches("^-?[0-9]+(?:,[0-9]+)?$") && !line.isEmpty()) {
+                try { metersAboveSeaLevel = Double.parseDouble(line); break; }catch(NumberFormatException e) { }
+            }
+        } return metersAboveSeaLevel;
     }
 
     public int askCarCode()throws AskBreak{
@@ -107,7 +114,7 @@ public class Ask {
         while (true) {
             console.print("Car Code: ");
             var line = console.readln().trim();
-            if (Integer.parseInt(line) > 0 || Integer.parseInt(line) < 1000) {
+            if (line.matches("^[0-9]+$") && (Integer.parseInt(line) > 0 || Integer.parseInt(line) < 1000)) {
                 try { carCode = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
             }
             if (line.equals("exit")) throw new AskBreak();
@@ -121,11 +128,11 @@ public class Ask {
                 console.print("Government ("+ Arrays.toString(Government.names()));
                 var line = console.readln().trim();
                 if (line.equals("exit")) throw new AskBreak();
-                if (!line.isEmpty()) {
+                if (!line.isEmpty() && (line.equals("COMMUNISM") || line.equals("KRITARCHY") || line.equals("TOTALITARIANISM"))) {
                     try {
                         r = Government.valueOf(line); break;
-                    } catch (NullPointerException | IllegalArgumentException ignored) { }
-                } else return null;
+                    } catch (NullPointerException | IllegalArgumentException e) { }
+                }
             }
             return r;
         } catch (NullPointerException e) {
@@ -140,11 +147,11 @@ public class Ask {
                 console.print("Standard of Living ("+ Arrays.toString(StandardOfLiving.names()));
                 var line = console.readln().trim();
                 if (line.equals("exit")) throw new AskBreak();
-                if (!line.isEmpty()) {
+                if (!line.isEmpty() && (line.equals("ULTRA_HIGH") || line.equals("HIGH") || line.equals("LOW") || line.equals("NIGHTMARE"))) {
                     try {
                         r = StandardOfLiving.valueOf(line); break;
-                    } catch (NullPointerException e) { }
-                } else return null;
+                    } catch (NullPointerException ignored) { }
+                }
             }
             return r;
         } catch (NullPointerException e) {
@@ -158,7 +165,7 @@ public class Ask {
                 console.print("Enter age");
                 var line = console.readln().trim();
                 if (line.equals("exit")) throw new AskBreak();
-                if (Long.parseLong(line)> 0) {
+                if (line.matches("^[0-9]+$") && Long.parseLong(line)> 0) {
                     try { age = Integer.parseInt(line); break; }catch(NumberFormatException e) { }
                 }
         }  return age;

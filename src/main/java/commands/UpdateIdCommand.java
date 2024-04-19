@@ -34,7 +34,6 @@ public class UpdateIdCommand extends Command {
             return false;
         }
         collectionManager.remove(id);
-        console.println("Обновите данные лабораторной работы");
         if (collectionManager.addById(id, new City(ask.setId(),
                 ask.askName(),
                 ask.askCoordinates(),

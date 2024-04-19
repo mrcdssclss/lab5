@@ -13,7 +13,7 @@ public class MinByCommand extends Command {
     private final ConsoleManager console;
 
     public MinByCommand(ConsoleManager console) {
-        super("min_by_Standard_Of_Living", "вывести любой объект из коллекции, " +
+        super("min_By_Standard_Of_Living", "вывести любой объект из коллекции, " +
                 "значение поля " +
                 "Standard_Of_Living которого является минимальным");
         this.console = console;

@@ -1,18 +1,18 @@
 <Array>
   <city>
-    <id>0</id>
-    <name>New York</name>
+    <id>1</id>
+    <name>dfg</name>
     <coordinates>
-      <x>40.7128</x>
-      <y>-74.006</y>
+      <x>3.0</x>
+      <y>4.0</y>
     </coordinates>
-    <creationDate>2023-05-12T08:30:00</creationDate>
-    <area>789</area>
-    <population>8398748</population>
-    <metersAboveSeaLevel>10.0</metersAboveSeaLevel>
-    <carCode>1234</carCode>
+    <creationDate>2024-04-18T20:06:42.12935</creationDate>
+    <area>12</area>
+    <population>23</population>
+    <metersAboveSeaLevel>3.0</metersAboveSeaLevel>
+    <carCode>10</carCode>
     <government>COMMUNISM</government>
-    <standardOfLiving>NIGHTMARE</standardOfLiving>
-    <governor>50</governor>
+    <standardOfLiving>HIGH</standardOfLiving>
+    <governor>12</governor>
   </city>
 </Array>

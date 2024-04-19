@@ -10,7 +10,7 @@ public class CountGreaterCommand extends Command{
     private final ConsoleManager console;
 
     public  CountGreaterCommand(CollectionManager collectionManager, ConsoleManager console){
-        super("count_greater_than_meters_above_sea_level", " meters_above_sea_level : вывести количество элементов, значение поля meters_above_sea_level которых равно заданному");
+        super("count_greater_than_meters_above_sea_level", " meters_above_sea_level  вывести количество элементов, значение поля meters_above_sea_level которых равно заданному");
         this.collectionManager = collectionManager;
         this.console = console;
     }
