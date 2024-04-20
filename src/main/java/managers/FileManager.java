@@ -1,6 +1,7 @@
 package managers;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 import com.thoughtworks.xstream.converters.collections.CollectionConverter;
@@ -67,8 +68,9 @@ public class FileManager {
                 } else {
                     console.printError("Невозможно преобразовать XML в коллекцию");
                 }
-            } catch (IOException e) {
-                throw new RuntimeException("Ошибка при чтении файла", e);
+            } catch (IOException | ConversionException e) {
+                console.printError("Ошибка при чтении файла: либо не считывается коллекция, либо файла нет");
+                System.exit(-1);
             }
         } else {
             console.printError("Имя файла пустое");

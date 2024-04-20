@@ -1,1 +1,18 @@
-<Array/>
+<Array>
+  <city>
+    <id>1</id>
+    <name>fjdkfn</name>
+    <coordinates>
+      <x>dfjknfkdj</x>
+      <y>2332.0</y>
+    </coordinates>
+    <creationDate>2024-04-20T13:53:07.248127</creationDate>
+    <area>232</area>
+    <population>31</population>
+    <metersAboveSeaLevel>32.0</metersAboveSeaLevel>
+    <carCode>323</carCode>
+    <government>COMMUNISM</government>
+    <standardOfLiving>LOW</standardOfLiving>
+    <governor>23</governor>
+  </city>
+</Array>
