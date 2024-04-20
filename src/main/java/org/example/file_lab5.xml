@@ -1,18 +1,1 @@
-<Array>
-  <city>
-    <id>1</id>
-    <name>dfg</name>
-    <coordinates>
-      <x>3.0</x>
-      <y>4.0</y>
-    </coordinates>
-    <creationDate>2024-04-18T20:06:42.12935</creationDate>
-    <area>12</area>
-    <population>23</population>
-    <metersAboveSeaLevel>3.0</metersAboveSeaLevel>
-    <carCode>10</carCode>
-    <government>COMMUNISM</government>
-    <standardOfLiving>HIGH</standardOfLiving>
-    <governor>12</governor>
-  </city>
-</Array>
+<Array/>

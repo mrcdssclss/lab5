@@ -23,16 +23,14 @@ public class RemoveGreaterCommand extends Command {
         int id;
         Ask ask = new Ask(collectionManager, scanner, console);
         ArrayDeque<City> city = CollectionManager.getCollection();
-        if (!agrument.isEmpty()) {
+        if (!agrument.isBlank()) {
             id = Integer.parseInt(agrument);
         } else {
-            id = ask.setId();
+            console.printError("Данная команда имеет аргументы");
+            return false;
         }
-
-
-
         for (City el : city){
-            if (String.valueOf(el.getId()).compareTo(String.valueOf(id)) < 0){
+            if (el.getId() > id){
                 collectionManager.remove(el.getId());
             }
         }
