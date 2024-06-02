@@ -19,7 +19,6 @@ public class Ask {
         this.userScanner = userScanner;
         this.collectionManager = collectionManager;
         this.console = console;
-
     }
 
 
